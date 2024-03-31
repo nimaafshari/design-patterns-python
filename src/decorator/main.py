@@ -1,32 +1,18 @@
-class Component:
-    def operation(self) -> str:
-        pass
+from beverages import DarkRoast, Espresso, HouseBlend, Decaf
+from condiments import Mocha, Whip, Soy, SteamMilk
 
+if __name__ == "__main__":
+    beverage = Espresso()
+    print(beverage)
 
-class ConcreteComponent(Component):
-    def operation(self) -> str:
-        return "ConcreteComponent"
+    beverage_2 = DarkRoast()
+    beverage_2 = Mocha(beverage_2)
+    beverage_2 = Mocha(beverage_2)
+    beverage_2 = Whip(beverage_2)
+    print(beverage_2)
 
-
-class Decorator(Component):
-    _component: Component = None
-
-    def __init__(self, component: Component) -> None:
-        self._component = component
-
-    @property
-    def component(self) -> Component:
-        return self._component
-
-    def operation(self) -> str:
-        return self._component.operation()
-    
-class ConcreteDecoratorA(Decorator):
-    def operation(self) -> str:
-        return f'ConcreteDecoratorA {self.component.operation()}'
-    
-class ConcreteDecoratorA(Decorator):
-    def operation(self) -> str:
-        return f'ConcreteDecoratorB {self.component.operation()}'
-    
-def client_code()
+    beverage_3 = HouseBlend()
+    beverage_3 = Soy(beverage_3)
+    beverage_3 = Mocha(beverage_3)
+    beverage_3 = Whip(beverage_3)
+    print(beverage_3)
